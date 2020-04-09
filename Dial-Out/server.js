@@ -1,6 +1,7 @@
 const express = require('express');
 const OpenTok = require('opentok');
 const config = require('./config');
+const { uuid } = require('uuidv4');
 
 const app = express();
 
@@ -64,6 +65,13 @@ const setSipOptions = () => ({
     password: config.sip.password,
   },
   secure: false,
+});
+
+/**
+   * If no /room/:rid is specified, generate a random uuid for the room
+*/
+app.get('/', (req, res) => {
+  res.redirect('/room/'+uuid());
 });
 
 /**

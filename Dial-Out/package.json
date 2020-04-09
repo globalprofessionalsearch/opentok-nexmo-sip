@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "opentok": "^2.8.1"
+    "opentok": "^2.8.1",
+    "uuidv4": "^6.0.7"
   }
 }
