@@ -33,10 +33,14 @@
       <script src="/js/opentok.js"></script>
   </head>
   <body>
+      <div id="sessionId"><h2>SessionID: <%=sessionId %></h2></div>
       <div id="publisher"></div>
       <div id="subscribers"></div>
       <input type="text" id="phoneNumber">
       <button onclick="dialOut()">Click here to dial-out</button>
-      <button onclick="hangUp()">Click here to hang-up</button>        
+      <button onclick="hangUp()">Click here to hang-up</button>
+      <button onclick="console.log(sessionId)">Log SessionID</button>
+      <button onclick="console.log(connectionId)">Log ConnectionID</button>
+      <button onclick="console.log(sipData)">Log SipInterconnect</button>
   </body>
 </html>

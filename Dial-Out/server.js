@@ -1,7 +1,7 @@
 const express = require('express');
 const OpenTok = require('opentok');
-const config = require('./config');
 const { uuid } = require('uuidv4');
+const config = require('./config');
 
 const app = express();
 
@@ -60,6 +60,7 @@ const setSessionDataAndRenderRoom = (res, roomId) => {
 */
 
 const setSipOptions = () => ({
+  from: "13049336942",
   auth: {
     username: config.sip.username,
     password: config.sip.password,
@@ -105,6 +106,7 @@ app.get('/dial-out', (req, res) => {
     if (error) {
       res.status(400).send('There was an error dialing out');
     } else {
+      console.log(sipCall)
       app.set(phoneNumber, sipCall.connectionId);
       res.json(sipCall);
     }
@@ -132,5 +134,5 @@ app.get('/hang-up', (req, res) => {
 });
 
 
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '9000';
 app.listen(port, () => console.log(`listening on port ${port}`));
